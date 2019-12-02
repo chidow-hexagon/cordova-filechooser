@@ -32,5 +32,16 @@
             <runs />
         </js-module>
     </platform>
+
+    <platform name="ios">
+		<source-file src="src/ios/FileChooser.swift" />
+		<dependency id="cordova-plugin-add-swift-support" version="*" />
+
+		<config-file target="config.xml" parent="/*">
+			<feature name="FileChooser">
+				<param name="ios-package" value="FileChooser" />
+			</feature>
+		</config-file>
+	</platform>
     
 </plugin>
