@@ -22,41 +22,7 @@ class FileChooser : CDVPlugin {
 	func open (command: CDVInvokedUrlCommand) {
 		self.commandCallback = command.callbackId
 
-		let accept = command.arguments.first as! String
-		let mimeTypes = accept.components(separatedBy: ",")
-
-		let utis = mimeTypes.map { (mimeType: String) -> String in
-			switch mimeType {
-				case "audio/*":
-					return kUTTypeAudio as String
-				case "font/*":
-					return "public.font"
-				case "image/*":
-					return kUTTypeImage as String
-				case "text/*":
-					return kUTTypeText as String
-				case "video/*":
-					return kUTTypeVideo as String
-				default:
-					break
-			}
-
-			if mimeType.range(of: "*") == nil {
-				let utiUnmanaged = UTTypeCreatePreferredIdentifierForTag(
-					kUTTagClassMIMEType,
-					mimeType as CFString,
-					nil
-				)
-
-				if let uti = (utiUnmanaged?.takeRetainedValue() as? String) {
-					if !uti.hasPrefix("dyn.") {
-						return uti
-					}
-				}
-			}
-
-			return kUTTypeData as String
-		}
+		let utis = [kUTTypeData as String]
 
 		self.callPicker(utis: utis)
 	}
