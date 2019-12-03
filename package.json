@@ -20,7 +20,8 @@
     "id": "cordova-plugin-filechooser",
     "platforms": [
       "android",
-      "windows"
+      "windows",
+      "ios"
     ]
   }
 }
