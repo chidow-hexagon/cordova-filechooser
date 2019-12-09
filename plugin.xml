@@ -35,7 +35,7 @@
 
     <platform name="ios">
 		<source-file src="src/ios/FileChooser.swift" />
-		<dependency id="cordova-plugin-add-swift-support" version="*" />
+		<dependency id="cordova-plugin-add-swift-support" version="2.0.2" />
 
 		<config-file target="config.xml" parent="/*">
 			<feature name="FileChooser">
