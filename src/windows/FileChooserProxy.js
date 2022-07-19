@@ -26,7 +26,7 @@ module.exports = {
             // Path to unique folder for uploads within local folder. Encapsulate file selection/upload data from other local data
             const appUploadFolder = "cordova-filechooser-plugin\\windows\\uploads\\";
 
-            localFolder.createFolderAsync(appUploadFolder, Windows.Storage.CreationCollisionOption.OpenIfExists).done(function (uploadsFolder) {
+            localFolder.createFolderAsync(appUploadFolder, Windows.Storage.CreationCollisionOption.openIfExists).done(function (uploadsFolder) {
                 file.copyAsync(uploadsFolder, file.name, Windows.Storage.NameCollisionOption.replaceExisting)
                     .done(function (savedFile) {
                         successCallback('ms-appdata:///local/cordova-filechooser-plugin/windows/uploads/' + savedFile.name);
